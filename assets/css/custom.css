@@ -1,0 +1,17 @@
+body {
+	font-family: 'Work Sans', sans-serif;
+}
+
+#alphabet p, #word p {
+	letter-spacing: 10px;
+	font-size: 20px;
+	font-family: 'Coming Soon', Arial, sans-serif;
+}
+
+.wrong {
+	color:red;
+}
+
+.correct {
+	color:green;
+}
