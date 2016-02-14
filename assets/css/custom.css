@@ -1,5 +1,24 @@
+html, body{
+  min-height: 100%;
+}
+
 body {
 	font-family: 'Work Sans', sans-serif;
+	position: relative;
+}
+
+#overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#overlay button {
+	margin: 20px;
 }
 
 #alphabet p, #word p {

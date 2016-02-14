@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>JavaScript Word Guess Game</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Coming+Soon|Work+Sans:400,300,500,600,700' rel='stylesheet' type='text/css'>
@@ -11,9 +12,11 @@
 	<div id="word"></div>
 	<div id="picture"></div>
 	<div id="guessed"></div>
-	<div id="alert"></div>
+	<div id="alertWrong"></div>
+	<div id="alertRight"></div>
 	<div id="nice"></div>
 	<div id="alphabet"></div>
+	<div id="overlay" style="display: none;"><button id='startAgain' value='Try Again' onclick="startAgain();">Try Again</button></div>
 
 	<script type="text/javascript" src="assets/js/javascript.js"></script>
 
