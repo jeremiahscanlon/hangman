@@ -47,6 +47,12 @@ var guessLogCount = -1;
 var guessLog = [];
 var guessLogReverse = ['holder'];
 
+// show mobile input box
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	document.querySelector('#mobileEntry').style.display = "block";
+	document.querySelector('#panel-body').style.display = "block";
+}
+
 
 document.onkeypress = function (event) {
 	

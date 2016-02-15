@@ -22,6 +22,7 @@
 			<div class="col-md-4 directions">
 				<p>Welcome to our JavaScript Word Guess game. We are trying to be politically correct and child safe here. As a result we decided not to name the site after the evil capital punishment game that has been defiling children's souls for ages.</p>
 				<button id='startAgain' style="display: none;" value='Try Again' onclick="startAgain();">Try Again</button>
+				
 			</div>
 			<div class="col-md-8 directions">
 				<div class="panel panel-default">
@@ -38,6 +39,7 @@
 						<li>Non-letters and anything you guessed already will not count as a wrong guess.</li>
 						<li>You can see how many wrong guess you have and letters you need to finish the word in the stats section.</li>
 						<li>To restart the game simply refresh the page.</li>
+						<li>NOTE: If you are on mobile please click in the entry box below to bring up your keyboard.</li>
 					</ul>
 				  </div>
 				</div>
@@ -60,6 +62,9 @@
 					<h2>Letters:</h2>
 					<div id="alphabet"></div>
 				</div>
+				<div class="form-group" id='mobileEntry' style="display:none;">
+		          <input type="text" class="form-control" placeholder="Mobile Entry">
+		        </div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
