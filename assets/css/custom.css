@@ -7,30 +7,73 @@ body {
 	position: relative;
 }
 
-#overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  background-color: rgba(0,0,0,0.5);
+
+.header {
+	background-color: #eee;
+	padding: 20px;
+	width:100%;
+	margin-bottom: 20px;
+}
+.header h1 {
+	margin: 0px;
 }
 
-#overlay button {
-	margin: 20px;
+.panel-title {
+	display: inline-block;
+}
+
+.directions ul li {
+	list-style-type: circle;
+	color: #999;
+	margin-left: 20px;
 }
 
 #alphabet p, #word p {
 	letter-spacing: 10px;
 	font-size: 20px;
 	font-family: 'Coming Soon', Arial, sans-serif;
+	line-height: 40px;
 }
 
 .wrong {
+	font-family: 'Work Sans', sans-serif;
 	color:red;
 }
 
 .correct {
+	font-family: 'Work Sans', sans-serif;
 	color:green;
+}
+
+.guessLog, .alerts {
+	height: 200px;
+}
+
+#guessLog {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 150px;
+}
+
+#guessLog ul li {
+	list-style-type: none;
+	color: #999;
+}
+
+#guessLog ul li:first-child { 
+    color: #000;
+    outline: 1px solid black;
+}
+
+@media screen and (max-width: 1088px) {
+	#alphabet p {
+	    letter-spacing: 6px;
+	}
+}
+
+@media screen and (max-width: 571px) {
+	#alphabet p {
+		letter-spacing: 4px;
+	    font-size: 18px;	
+	}
 }
