@@ -67,7 +67,8 @@
 	function mobileCapture() {
 		// cap
 		var mobileUserGuess = document.getElementById('textInputId').value;
-		runGame(mobileUserGuess);
+		var mobileGuessLower = mobileUserGuess.toLowerCase();
+		runGame(mobileGuessLower);
 		document.getElementById('textInputId').value = '';
 	}
 
