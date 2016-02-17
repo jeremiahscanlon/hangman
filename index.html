@@ -10,6 +10,10 @@
 	<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Coming+Soon|Work+Sans:400,300,500,600,700' >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- bootstrap javascript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -21,13 +25,12 @@
 		<div class="row-fluid">
 			<div class="col-md-4 directions">
 				<p>Welcome to our JavaScript Word Guess game. We are trying to be politically correct and child safe here. As a result we decided not to name the site after the evil capital punishment game that has been defiling children's souls for ages.</p>
-				<button id='startAgain' style="display: none;" value='Try Again' onclick="startAgain();">Try Again</button>
-				
+				<button type="button" class="btn btn-warning" id='startAgain' style="display: none;" value='Try Again' onclick="startAgain();">Start Over</button>
 			</div>
 			<div class="col-md-8 directions">
 				<div class="panel panel-default">
 				  <div class="panel-heading">
-				    <h3 class="panel-title">How to play:</h3><button class="pull-right" onclick="toggle_visibility('panel-body');">Show Directions</button>
+				    <button type="button" class="btn btn-info" onclick="toggle_visibility('panel-body');">How to play</button>
 				  </div>
 				  <div class="panel-body" id="panel-body" style="display: none;">
 				  	<ul>
@@ -39,15 +42,11 @@
 						<li>Non-letters and anything you guessed already will not count as a wrong guess.</li>
 						<li>You can see how many wrong guess you have and letters you need to finish the word in the stats section.</li>
 						<li>To restart the game simply refresh the page.</li>
-						<li>NOTE: If you are on mobile please click in the entry box below to bring up your keyboard.</li>
+						<li>NOTE: If you are on mobile please use the entry box and submit button below.</li>
 					</ul>
 				  </div>
 				</div>
 			</div>
-		</div>
-		<div class="clearfix"></div>
-		<div class="row-fluid">
-			
 		</div>
 		<div class="clearfix"></div>
 		<div class="row-fluid">
@@ -62,17 +61,23 @@
 					<h2>Letters:</h2>
 					<div id="alphabet"></div>
 				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row-fluid">
+			<div class="col-md-6">
+			</div>
+			<div class="col-md-6">
 				<div class="form-group" id='mobileEntry' style="display:none;">
-		          <input type="text" class="form-control" placeholder="Mobile Entry">
+		        	<form class="navbar-form navbar-left" role="search">
+						<input type="text" class="form-control mobileEntryText" id="textInputId" placeholder="Mobile Entry">
+						<button type="submit" class="btn btn-info mobileEntryButton" onclick="runGame(document.getElementById('textInputId').value);">Submit</button>
+					</form>
 		        </div>
 			</div>
 		</div>
 		<div class="clearfix"></div>
 		<div class="row-fluid">
-			<div class="col-md-6 guessLog">
-				<h3>Guesses:</h3>
-				<div id="guessLog"></div>
-			</div>
 			<div class="col-md-6 alerts">
 				<h3>Stats:</h3>
 				<div class="alert alert-success" role="alert">
@@ -84,12 +89,14 @@
 					<div id="nope"></div>
 				</div>
 			</div>
+			<div class="col-md-6 guessLog">
+				<h3>Guesses:</h3>
+				<div id="guessLog"></div>
+			</div>
 		</div>
 
 		<script type="text/javascript" src="assets/js/javascript.js"></script>
-		<!-- bootstrap javascript -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		
 	</div>
 </body>
 </html>

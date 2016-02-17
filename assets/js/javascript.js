@@ -29,7 +29,45 @@ document.querySelector('#alertRight').innerHTML = alertRight;
 
 // reload the page when the startAgain button is pushed
 function startAgain() {
-	location.reload();
+
+	// choose a new random word and display to the console
+	var playWord = words[Math.floor(Math.random() * words.length)];
+	console.log('The word is: \"'+playWord+'\". Hope you are happy now, cheater.');
+
+	// re-create the array of spaces and display it in html
+	var spaces = [];
+	for (var i = 0; i < playWord.length; i++) {
+	 	spaces[i] = '_'
+	}
+	var word = '<p> ' + spaces.join('') + ' </p>';
+	document.querySelector('#word').innerHTML = word;
+
+	// re-create the array for the alphabet and display it in html
+	var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+	var alphaId = '<p> ' + alphabet.join('') + ' </p>';
+	document.querySelector('#alphabet').innerHTML = alphaId;
+
+	// re-create the wrongCounter and display with message in html
+	var wrongCounter = 10;
+	var wrong = '<p>You have ' + wrongCounter + ' wrong guesses.</p>';
+	document.querySelector('#alertWrong').innerHTML = wrong;
+
+	// re-create the correctCounter and display with message in html
+	var correctCounter = playWord.length;
+	var alertRight = '<p>You have ' + correctCounter + ' letters left to finish the word.</p>';
+	document.querySelector('#alertRight').innerHTML = alertRight;
+
+	// re-create guessLog, guessLogReverse, and empty div
+	var guessLogCount = -1;
+	var guessLog = [];
+	var guessLogReverse = ['holder'];
+	var guessLogDisplay = '';
+	document.querySelector('#guessLog').innerHTML = guessLogDisplay;
+
+	// Hide the nope and the nice messages
+	document.querySelector('#nope').style.display = "none";
+	document.querySelector('#nice').style.display = "none";
+
 }
 
 // toggle visibility by div alphaId
@@ -47,17 +85,24 @@ var guessLogCount = -1;
 var guessLog = [];
 var guessLogReverse = ['holder'];
 
-// show mobile input box
+// show directions automatically and input box when on mobile browser
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	document.querySelector('#mobileEntry').style.display = "block";
 	document.querySelector('#panel-body').style.display = "block";
+	document.querySelector('#mobileEntry').style.display = "block";
 }
 
 
 document.onkeypress = function (event) {
 	
-	// capture the users guess, display it in html
+	// capture the user guess from key press
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+	runGame(userGuess);
+}
+
+function runGame(data) {
+	
+	//Create entry for guessLog
+	var userGuess = data;
 	var guess = 'You guessed: ' + userGuess;
 	
 	// Build the guess Log by saving the guess, reversing the order, and print to html
@@ -73,8 +118,11 @@ document.onkeypress = function (event) {
 	// get the index of the guess in the alphabet array to see if the guess still exists
 	var j = alphabet.indexOf(userGuess);
 	if (j >= 0) {
+
 		// see if the guess is in the word
 		if (playWord.indexOf(userGuess) >= 0) {
+
+			// if it does ...
 			// replace the letter in the alphabet array with the green check
 			alphabet[j]= '<span class="correct">&#9745;</span>'
 			
@@ -109,6 +157,8 @@ document.onkeypress = function (event) {
 			document.querySelector('#alertRight').innerHTML = alertRight;
 		
 		} else {
+
+			// if it doesn't ...
 			// replace the guess in the alphabet with the red x
 			alphabet[j]= '<span class="wrong">&#9746;</span>'
 			
@@ -132,7 +182,7 @@ document.onkeypress = function (event) {
 		}
 	} else {
 		// alert that you have already guessed that
-		alert('You guessed that already, or your not hitting letters.\n\nTry again.');
+		alert('You guessed that already or your not hitting letters.\n\nTry again.');
 	}
 
 	// display the adjusted alphabet array
@@ -164,6 +214,5 @@ document.onkeypress = function (event) {
 			document.querySelector("#startAgain").style.display = "block";
 		}
 	}
-
-} 
+}
 

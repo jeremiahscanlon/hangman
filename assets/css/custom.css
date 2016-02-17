@@ -65,9 +65,40 @@ body {
     outline: 1px solid black;
 }
 
+.navbar-form {
+    padding: 0px !important;
+}
+
+.mobileEntryText {
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
+}
+
+.mobileEntryButton {
+	margin-left: -5px;
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+}
+
+.navbar-form {
+	margin:0px !important;
+}
+
 @media screen and (max-width: 1088px) {
 	#alphabet p {
 	    letter-spacing: 6px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.mobileEntryText {
+		display: inline-block !important;
+		width: 75% !important;
+	}
+
+	.mobileEntryButton {
+		width: 25%;
+		margin-top: -3px !important;
 	}
 }
 
