@@ -27,6 +27,9 @@ body {
 	color: #999;
 	margin-left: 20px;
 }
+#startAgain {
+	margin-bottom: 10px;
+}
 
 #alphabet p, #word p {
 	letter-spacing: 10px;
