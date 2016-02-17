@@ -54,6 +54,13 @@
 		document.querySelector('#mobileEntry').style.display = "block";
 	}
 
+	if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+		document.querySelector('#panel-body').style.display = "block";
+		document.querySelector('#mobileEntry').style.display = "block";
+		document.querySelector('.mobileEntryButton').style.display = "none";
+		document.querySelector('.mobileEntryText').style.width = "100% !important";
+	}
+
 
 	document.onkeypress = function (event) {
 		
@@ -65,7 +72,7 @@
 	}
 
 	function mobileCapture() {
-		// cap
+		// capture data from text input field upon submit on Android devices
 		var mobileUserGuess = document.getElementById('textInputId').value;
 		var mobileGuessLower = mobileUserGuess.toLowerCase();
 		runGame(mobileGuessLower);
